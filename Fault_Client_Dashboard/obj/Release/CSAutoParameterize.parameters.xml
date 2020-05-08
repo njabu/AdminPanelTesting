@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="SdDatabaseEntiti-Web.config Connection String" description="SdDatabaseEntiti Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.SdModel.csdl|res://*/Models.SdModel.ssdl|res://*/Models.SdModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\SdDatabase.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\user\\source\\repos\\Fault_Client_Dashboard\\Fault_Client_Dashboard\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SdDatabaseEntiti']/@connectionString" />
+  </parameter>
+  <parameter name="SdDatabaseEntities-Web.config Connection String" description="SdDatabaseEntities Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:itgmmoa.database.windows.net,1433;Initial Catalog=Db_ServiceDelivery;Persist Security Info=False;User ID=ITGMMOA_Server;Password=IDAS@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\user\\source\\repos\\Fault_Client_Dashboard\\Fault_Client_Dashboard\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SdDatabaseEntities']/@connectionString" />
+  </parameter>
+</parameters>

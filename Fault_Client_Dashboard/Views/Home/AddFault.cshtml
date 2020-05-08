@@ -1,0 +1,294 @@
+﻿@model Fault_Client_Dashboard.Models.FaultTbl
+
+@{
+    Layout = null;
+}
+
+<link href="~/Content/css/main.css" rel="stylesheet" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Open Graph Meta-->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="">
+    <meta property="og:title" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <title>Admin Panel</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="app sidebar-mini rtl">
+    <!-- Navbar-->
+    <header class="app-header">
+
+        <a class="app-header__logo" href="FaultDashboard">Admin Panel</a>
+
+
+        <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+        <!-- Navbar Right Menu-->
+        @*<ul class="app-nav">
+                <img class="app-sidebar__user-avatar" src="~/Image/@ViewBag.Image" alt="User Image" style="width: 48px; height: 48px;" />
+                <div>
+                    <p class="app-sidebar__user-designation" style="color:white;">@Session["SiteName"] <br />@Session["Role"]</p>
+                </div>
+
+            </ul>*@
+
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+        <div class="app-sidebar__user">
+            <img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
+            @*<img class="app-sidebar__user-avatar" src="~/Image/@ViewBag.Image" alt="User Image" style="width: 48px; height: 48px;" />*@
+            @*<div>
+                    <p class="app-sidebar__user-name">@Session["FirstName"] @Session["LastName"]</p>
+                    <p class="app-sidebar__user-designation">@Session["SiteName"] <br />@Session["Role"]</p>
+                </div>*@
+            <div>
+                <p class="app-sidebar__user-name">Sam Smith</p>
+                <p class="app-sidebar__user-designation">Supervisor</p>
+            </div>
+        </div>
+        <ul class="app-menu">
+            <li><a class="app-menu__item active" href="/Home/FaultDashboard"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Manage Faults </span></a></li>
+
+            <li><a class="app-menu__item " href="/Home/ClientDashboard"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Manage Clients </span></a></li>
+
+            <li>
+                <a class="app-menu__item" href="/Home/UserProfile"><i class="app-menu__icon fa fa-user fa-lg"></i><span class="app-menu__label">Profile</span></a>
+            </li>
+            <li><a class="app-menu__item" href="/Home/Logout"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Logout</span></a></li>
+        </ul>
+    </aside>
+
+
+    <main class="app-content">
+        @*<div class="app-title">
+            <div>
+                <h1><i class="fa fa-edit"></i> Add Fault</h1>
+                <p>Fault</p>
+            </div>
+            <ul class="app-breadcrumb breadcrumb">
+                <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+                <li class="breadcrumb-item">Fault</li>
+                <li class="breadcrumb-item"><a href="/Home/FaultDashboard">Dashboard</a></li>
+            </ul>
+        </div>*@
+        <div class="row">
+            <div class="col-md-6">
+                <div class="tile">
+                    <h3 class="tile-title">Add Fault</h3>
+                    <div class="tile-body">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.FaultID)
+
+                            <div class="form-group">
+                                <label class="control-label">Fault Type</label>
+
+                                @Html.EditorFor(model => model.FaultType, new { htmlAttributes = new { @class = "form-control", @required = "true" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.FaultType, "", new { @class = "text-danger" })
+
+
+
+                            <div class="form-group">
+                                <label class="control-label">Assigned To</label>
+
+                                @Html.EditorFor(model => model.AssignedTo, new { htmlAttributes = new { @class = "form-control", @required = "true" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.AssignedTo, "", new { @class = "text-danger" })
+
+
+
+                            <div class="form-group">
+                                <label class="control-label">Updated Date</label>
+
+                                @Html.EditorFor(model => model.UpdatedDate, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.UpdatedDate, "", new { @class = "text-danger" })
+
+
+                            <div class="form-group">
+                                <label class="control-label">Latitude</label>
+
+                                @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control", @type = "text", @required = "true" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
+
+                            <div class="form-group">
+                                <label class="control-label">Longitude</label>
+
+                                @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control", @type = "text", @required = "true" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
+
+                            <div class="form-group">
+                                <label class="control-label">ClientID</label>
+
+                                @Html.EditorFor(model => model.ClientID, new { htmlAttributes = new { @class = "form-control", @type = "text", @required = "true" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.ClientID, "", new { @class = "text-danger" })
+
+                            <div class="form-group">
+                                <label class="control-label">Description</label>
+
+                                @Html.EditorFor(model => model.Decription, new { htmlAttributes = new { @class = "form-control", @type = "text", @required = "true" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.Decription, "", new { @class = "text-danger" })
+
+                            <div class="form-group">
+                                <label class="control-label">Status</label>
+                                @Html.DropDownListFor(model => model.Status, new List<SelectListItem>
+                              {
+                                      new SelectListItem{ Text= "CHOOSE OPTION", Value = "CHOOSE OPTION" },
+                                      new SelectListItem{ Text= "Unassigned", Value = "Unassigned" },
+                                         new SelectListItem{ Text= "Assagned", Value = "Assagned" },
+                                           new SelectListItem{ Text= "In Progress", Value = "In Progress" },
+                                             new SelectListItem{ Text= "Paused", Value = "Paused" },
+                                              new SelectListItem{ Text= "Closed", Value = "Closed" },
+                              }, htmlAttributes: new { @class = "form-control", style = "width: 100%;" })
+                              
+                            </div>
+                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+
+                            <hr />
+                            <div class="text-center">
+                                <input name="recover-submit" class="btn btn-lg btn-info btn-block" style="background-color:#009688" value="Submit" type="submit">
+                            </div>
+                        </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="tile">
+                    <h3 class="tile-title"></h3>
+                    <div class="tile-body">
+                        <form class="form-horizontal">
+                            <hr />
+                            <br /><br /><br /><br />
+                            <hr />
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearix"></div>
+
+        </div>
+
+    </main>
+
+    <!-- Essential javascripts for application to work-->
+    <script src="~/Content/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/js/popper.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="~/Content/js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <script src="~/Content/js/plugins/chart.js"></script>
+    <!-- Data table plugin-->
+
+
+    <style>
+        .pic {
+            width: 100%;
+            height: 350px;
+        }
+
+        thead tr {
+            background: #33b8bd;
+        }
+
+        body {
+            background: grey;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        h3 {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        .box {
+            padding: 60px 0px;
+        }
+
+        .box-part {
+            background: #FFF;
+            border-radius: 10px;
+            padding: 60px 10px;
+            margin: 30px 0px;
+        }
+
+        /*.box-part:hover {
+                background: white;
+            }
+
+                .box-part:hover .fa,
+                .box-part:hover .title,
+                .box-part:hover .text,
+                .box-part:hover a {
+                    color: #FFF;
+                    -webkit-transition: all 1s ease-out;
+                    -moz-transition: all 1s ease-out;
+                    -o-transition: all 1s ease-out;
+                    transition: all 1s ease-out;
+                }*/
+
+        .text {
+            margin: 20px 0px;
+        }
+
+
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+            .topnav a {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+                .topnav a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+                .topnav a.active {
+                    background-color: #4CAF50;
+                    color: white;
+                }
+
+        .topnav-right {
+            float: right;
+        }
+    </style>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SdDatabaseModelStoreContainer" CdmEntityContainer="SdDatabaseEntities">
+    <EntitySetMapping Name="AdminTbls">
+      <EntityTypeMapping TypeName="SdDatabaseModel.AdminTbl">
+        <MappingFragment StoreEntitySet="AdminTbl">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="AdminType" ColumnName="AdminType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FaultingTbls">
+      <EntityTypeMapping TypeName="SdDatabaseModel.FaultingTbl">
+        <MappingFragment StoreEntitySet="FaultingTbl">
+          <ScalarProperty Name="FaultingID" ColumnName="FaultingID" />
+          <ScalarProperty Name="FaultID" ColumnName="FaultID" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientTbls">
+      <EntityTypeMapping TypeName="SdDatabaseModel.ClientTbl">
+        <MappingFragment StoreEntitySet="ClientTbl">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FaultTbls">
+      <EntityTypeMapping TypeName="SdDatabaseModel.FaultTbl">
+        <MappingFragment StoreEntitySet="FaultTbl">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Decription" ColumnName="Decription" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="FaultType" ColumnName="FaultType" />
+          <ScalarProperty Name="FaultID" ColumnName="FaultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
